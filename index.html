@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Скидка или рассрочка — Firoza, Dubai Islands</title>
-<meta name="description" content="Сравнение полной оплаты со скидкой и плана 50/50: IRR, прибыль, точка безразличия.">
+<title>Discount or Payment Plan — Firoza, Dubai Islands</title>
+<meta name="description" content="Full payment at a discount versus a 50/50 plan: IRR, profit and the break-even price.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -221,39 +221,39 @@
 <body>
 
 <div class="wrap">
-  <p class="eyebrow">Firoza · Dubai Islands · проект DLD 3887</p>
-  <h1>Скидка за полную оплату или план 50/50</h1>
-  <p class="lede">Две квартиры, обе сдаются через год, обе на выходе стоят 2000 AED за фут. В первой цена <b>1224 AED/фут</b>, но деньги нужны все и сразу. Во второй — <b>1664 AED/фут</b> с рассрочкой пополам. Вопрос не в том, где прибыль больше, а в том, где выше доходность на вложенный капитал и на срок.</p>
+  <p class="eyebrow">Firoza · Dubai Islands · DLD project 3887</p>
+  <h1>Full-payment discount or a 50/50 plan</h1>
+  <p class="lede">Two apartments, both handed over in a year, both worth 2,000 AED per sqft on exit. The first is priced at <b>1,224 AED/sqft</b>, but the money is due in full today. The second is <b>1,664 AED/sqft</b> with the payment split in half. The question is not which one makes more profit, but which one earns more on the capital actually tied up, and for how long.</p>
 
   <div class="controls">
     <div class="field">
-      <label for="pa">Цена A — полная оплата</label>
+      <label for="pa">Price A — full payment</label>
       <input type="number" id="pa" value="1224" step="1" min="1">
-      <span class="unit">AED за фут</span>
+      <span class="unit">AED per sqft</span>
     </div>
     <div class="field">
-      <label for="pb">Цена B — план 50/50</label>
+      <label for="pb">Price B — 50/50 plan</label>
       <input type="number" id="pb" value="1664" step="1" min="1">
-      <span class="unit">AED за фут</span>
+      <span class="unit">AED per sqft</span>
     </div>
     <div class="field">
-      <label for="ex">Цена на выходе</label>
+      <label for="ex">Exit price</label>
       <input type="number" id="ex" value="2000" step="10" min="1">
-      <span class="unit">AED за фут</span>
+      <span class="unit">AED per sqft</span>
     </div>
     <div class="field">
-      <label for="sq">Площадь</label>
+      <label for="sq">Size</label>
       <input type="number" id="sq" value="822" step="1" min="1">
-      <span class="unit">фт², типовой 1BR</span>
+      <span class="unit">sqft, typical 1BR</span>
     </div>
     <div class="field">
-      <label for="mo">Срок до ключей</label>
+      <label for="mo">Time to handover</label>
       <input type="number" id="mo" value="12" step="1" min="1">
-      <span class="unit">месяцев</span>
+      <span class="unit">months</span>
     </div>
     <label class="toggle" for="cost">
       <input type="checkbox" id="cost" checked>
-      <span>Учитывать DLD 4% и комиссию 2%</span>
+      <span>Include 4% DLD fee and 2% commission</span>
     </label>
   </div>
 
@@ -261,48 +261,48 @@
 
   <div class="compare">
     <div class="plan a">
-      <h2>Вариант A</h2>
-      <p class="sub">100% при бронировании</p>
-      <div class="irr"><span class="num" id="irrA">—</span><span class="cap">годовых<br>IRR</span></div>
+      <h2>Option A</h2>
+      <p class="sub">100% on booking</p>
+      <div class="irr"><span class="num" id="irrA">—</span><span class="cap">annualised<br>IRR</span></div>
       <div class="flow" id="flowA"></div>
       <div class="rows" id="rowsA"></div>
     </div>
     <div class="plan b">
-      <h2>Вариант B</h2>
-      <p class="sub">50% старт · 50% на ключах</p>
-      <div class="irr"><span class="num" id="irrB">—</span><span class="cap">годовых<br>IRR</span></div>
+      <h2>Option B</h2>
+      <p class="sub">50% upfront · 50% on handover</p>
+      <div class="irr"><span class="num" id="irrB">—</span><span class="cap">annualised<br>IRR</span></div>
       <div class="flow" id="flowB"></div>
       <div class="rows" id="rowsB"></div>
     </div>
   </div>
 
   <section>
-    <h3>Где проходит граница</h3>
+    <h3>Where the line falls</h3>
     <p class="note" id="chartNote">—</p>
     <div class="chartbox">
       <svg id="chart" viewBox="0 0 720 320" role="img" aria-labelledby="chartTitle">
-        <title id="chartTitle">Доходность плана 50/50 в зависимости от его цены за фут</title>
+        <title id="chartTitle">Return on the 50/50 plan as a function of its price per sqft</title>
       </svg>
       <div class="legend">
-        <div><span class="swatch" style="background:var(--b-hue)"></span>IRR варианта B при данной цене</div>
-        <div><span class="swatch" style="background:var(--accent)"></span>IRR варианта A (не зависит от цены B)</div>
-        <div><span class="swatch" style="background:var(--ink-3)"></span>точка безразличия</div>
+        <div><span class="swatch" style="background:var(--b-hue)"></span>IRR of option B at that price</div>
+        <div><span class="swatch" style="background:var(--accent)"></span>IRR of option A (independent of B's price)</div>
+        <div><span class="swatch" style="background:var(--ink-3)"></span>break-even point</div>
       </div>
     </div>
   </section>
 
   <section>
-    <h3>Что если рынок не дойдёт до 2000</h3>
-    <p class="note">Обе модели держатся на одном допущении — цене выхода. Вариант B к ней чувствительнее: собственных денег в нём вдвое меньше, поэтому и просадка цены бьёт по доходности вдвое сильнее.</p>
+    <h3>What if the market never reaches 2,000</h3>
+    <p class="note">Both models rest on a single assumption — the exit price. Option B is the more sensitive of the two: only half as much of your own money is in the deal, so a drop in price hits the return twice as hard.</p>
     <div class="tablebox">
       <table>
         <thead>
           <tr>
-            <th>Цена выхода</th>
+            <th>Exit price</th>
             <th>IRR A</th>
             <th>IRR B</th>
-            <th>Прибыль A</th>
-            <th>Прибыль B</th>
+            <th>Profit A</th>
+            <th>Profit B</th>
           </tr>
         </thead>
         <tbody id="sens"></tbody>
@@ -311,18 +311,18 @@
   </section>
 
   <div class="foot">
-    <p><b>Как считается.</b> IRR — ставка, при которой приведённая стоимость всех платежей равна нулю. В варианте A два потока: минус цена сегодня, плюс выручка на ключах. В варианте B три: минус половина сегодня, минус половина на ключах, плюс выручка. Когда продажа приходится ровно на дату ключей, второй платёж и выручка схлопываются в один поток — поэтому вариант B и выглядит настолько доходным при низкой цене: собственных денег в сделке всего половина.</p>
-    <p><b>Издержки.</b> Сбор DLD 4% начисляется на полную цену договора и платится сразу при регистрации Oqood — в варианте B он уходит в день первого взноса, хотя оплачена лишь половина квартиры. Комиссия при продаже — 2%. Переключатель их отключает, если нужна чистая арифметика.</p>
-    <p><b>Чего модель не знает.</b> IRR не различает риск. Вариант A ставит весь капитал на застройщика на год вперёд; вариант B оставляет половину денег у клиента и сохраняет возможность выйти переуступкой, не внося второй платёж. При равной доходности это разные сделки. По реестру DLD у проекта готовность 0,00%, последняя инспекция — 2 сентября 2025 года.</p>
-    <p><b>Разрыв в прайсе.</b> 1224 против 1664 за фут — это скидка 26,4% за отказ от рассрочки. Точка безразличия проходит по 1472, то есть по скидке около 17%: всё, что застройщик даёт сверх этого, и есть чистый выигрыш полной оплаты. Здесь он дан с запасом почти в десять процентных пунктов.</p>
+    <p><b>How this is calculated.</b> IRR is the rate at which the present value of all payments equals zero. Option A has two flows: the price out today, the proceeds in at handover. Option B has three: half out today, half out at handover, proceeds in. When the sale lands exactly on the handover date, the second instalment and the proceeds collapse into a single flow — which is why option B looks so strong at a low price: only half the capital is ever committed.</p>
+    <p><b>Costs.</b> The 4% DLD fee is charged on the full contract price and is paid immediately at Oqood registration — in option B it goes out on the day of the first instalment, even though only half the apartment has been paid for. Commission on resale is 2%. The toggle switches both off if you want the raw arithmetic.</p>
+    <p><b>What the model does not know.</b> IRR does not price risk. Option A puts the entire capital with the developer for a year; option B leaves half the money with the buyer and keeps the door open to exit by assignment without ever making the second payment. At equal returns these are still different deals. Per the DLD registry the project is at 0.00% completion, last inspected on 2 September 2025.</p>
+    <p><b>The spread in the price list.</b> 1,224 against 1,664 per sqft is a 26.4% discount for giving up the payment plan. Break-even sits at 1,472, i.e. at a discount of roughly 17%: everything the developer gives beyond that is the pure gain of paying in full. Here it is given with almost ten percentage points to spare.</p>
   </div>
 </div>
 
 <script>
 (function(){
   const $ = id => document.getElementById(id);
-  const fmt0 = n => Math.round(n).toLocaleString('ru-RU').replace(/ /g,' ');
-  const pct = n => (n*100).toFixed(1).replace('.',',') + '%';
+  const fmt0 = n => Math.round(n).toLocaleString('en-US');
+  const pct = n => (n*100).toFixed(1) + '%';
 
   function irr(flows){
     const npv = r => flows.reduce((s,f)=> s + f[1]/Math.pow(1+r, f[0]), 0);
@@ -379,7 +379,7 @@
 
   function flowStrip(el, flows, sq, months){
     el.innerHTML = flows.map(([t,a]) => {
-      const when = t === 0 ? 'сегодня' : (Math.round(t*12) + ' мес');
+      const when = t === 0 ? 'today' : (Math.round(t*12) + ' mo');
       const cls = a > 0 ? ' class="out"' : '';
       const sign = a > 0 ? '+' : '−';
       return '<div'+cls+'><b>'+sign+' '+fmt0(Math.abs(a)*sq)+'</b>'+when+'</div>';
@@ -388,12 +388,12 @@
 
   function rowBlock(el, s, c, price){
     el.innerHTML = [
-      ['Цена квартиры', fmt0(price*c.sq) + ' AED'],
-      ['Нужно в день сделки', fmt0(s.day0) + ' AED'],
-      ['Всего вложено', fmt0(s.invested) + ' AED'],
-      ['Выручка после комиссии', fmt0(s.returned) + ' AED'],
-      ['Прибыль', fmt0(s.profit) + ' AED'],
-      ['ROI на вложенное', pct(s.roi)]
+      ['Apartment price', fmt0(price*c.sq) + ' AED'],
+      ['Due on the day', fmt0(s.day0) + ' AED'],
+      ['Total invested', fmt0(s.invested) + ' AED'],
+      ['Proceeds after commission', fmt0(s.returned) + ' AED'],
+      ['Profit', fmt0(s.profit) + ' AED'],
+      ['ROI on capital invested', pct(s.roi)]
     ].map(([k,v],i) => '<div class="row'+(i>=4?' accent':'')+'"><span>'+k+'</span><span>'+v+'</span></div>').join('');
   }
 
@@ -422,7 +422,7 @@
     const stepX = (xMax - xMin) > 900 ? 300 : ((xMax - xMin) > 450 ? 150 : 100);
     for (let p = Math.ceil(xMin/stepX)*stepX; p <= xMax; p += stepX) ticksX.push(p);
 
-    let s = '<title id="chartTitle">Доходность плана 50/50 в зависимости от его цены за фут</title>';
+    let s = '<title id="chartTitle">Return on the 50/50 plan as a function of its price per sqft</title>';
     ticksY.forEach(v => {
       s += '<line x1="'+L+'" y1="'+Y(v).toFixed(1)+'" x2="'+(W-R)+'" y2="'+Y(v).toFixed(1)+'" stroke="var(--line)" stroke-width="1"/>';
       s += '<text x="'+(L-9)+'" y="'+(Y(v)+4).toFixed(1)+'" text-anchor="end" fill="var(--ink-3)" font-family="IBM Plex Mono, monospace" font-size="11">'+Math.round(v*100)+'%</text>';
@@ -430,17 +430,17 @@
     ticksX.forEach(p => {
       s += '<text x="'+X(p).toFixed(1)+'" y="'+(H-B+20)+'" text-anchor="middle" fill="var(--ink-3)" font-family="IBM Plex Mono, monospace" font-size="11">'+fmt0(p)+'</text>';
     });
-    s += '<text x="'+((L+W-R)/2)+'" y="'+(H-6)+'" text-anchor="middle" fill="var(--ink-3)" font-family="IBM Plex Sans, sans-serif" font-size="11.5">цена варианта B, AED за фут</text>';
+    s += '<text x="'+((L+W-R)/2)+'" y="'+(H-6)+'" text-anchor="middle" fill="var(--ink-3)" font-family="IBM Plex Sans, sans-serif" font-size="11.5">price of option B, AED per sqft</text>';
 
-    // линия A
+    // option A line
     s += '<line x1="'+L+'" y1="'+Y(rA).toFixed(1)+'" x2="'+(W-R)+'" y2="'+Y(rA).toFixed(1)+'" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 4"/>';
     s += '<text x="'+(L+8)+'" y="'+(Y(rA)-8).toFixed(1)+'" fill="var(--accent)" font-family="IBM Plex Mono, monospace" font-size="11.5" font-weight="500">A — '+pct(rA)+'</text>';
 
-    // кривая B
+    // option B curve
     const d = pts.map((p,i)=> (i?'L':'M') + X(p[0]).toFixed(1) + ' ' + Y(p[1]).toFixed(1)).join(' ');
     s += '<path d="'+d+'" fill="none" stroke="var(--b-hue)" stroke-width="2.5" stroke-linejoin="round"/>';
 
-    // точка безразличия
+    // break-even point
     if (be && be > xMin && be < xMax){
       s += '<line x1="'+X(be).toFixed(1)+'" y1="'+T+'" x2="'+X(be).toFixed(1)+'" y2="'+(H-B)+'" stroke="var(--ink-3)" stroke-width="1" stroke-dasharray="3 4"/>';
       s += '<circle cx="'+X(be).toFixed(1)+'" cy="'+Y(rA).toFixed(1)+'" r="4.5" fill="var(--ground)" stroke="var(--ink-2)" stroke-width="2"/>';
@@ -449,7 +449,7 @@
       s += '<text x="'+(X(be)+dx).toFixed(1)+'" y="'+(T+14)+'" text-anchor="'+anchor+'" fill="var(--ink-2)" font-family="IBM Plex Mono, monospace" font-size="11.5">'+fmt0(be)+'</text>';
     }
 
-    // текущая точка B
+    // current point B
     const rB = irr(modelB(c.pb, c));
     if (rB !== null && c.pb > xMin && c.pb < xMax){
       s += '<circle cx="'+X(c.pb).toFixed(1)+'" cy="'+Y(rB).toFixed(1)+'" r="6" fill="var(--b-hue)" stroke="var(--surface)" stroke-width="2.5"/>';
@@ -473,7 +473,7 @@
       const clsA = (a!==null && b!==null && a>b) ? ' class="win"' : '';
       const clsB = (a!==null && b!==null && b>a) ? ' class="win"' : '';
       return '<tr'+(k===0?' class="here"':'')+'>'
-        + '<td>' + fmt0(ex) + ' AED/фт</td>'
+        + '<td>' + fmt0(ex) + ' AED/sqft</td>'
         + '<td'+clsA+'>' + (a===null?'—':pct(a)) + '</td>'
         + '<td'+clsB+'>' + (b===null?'—':pct(b)) + '</td>'
         + '<td>' + fmt0(sa.profit) + '</td>'
@@ -504,20 +504,20 @@
       const near = diff < 2;
       let v;
       if (near){
-        v = '<strong>Разница в пределах погрешности.</strong> A даёт ' + pct(rA) + ', B — ' + pct(rB)
-          + '. Выбор решает не доходность, а то, нужны ли клиенту свободные ' + fmt0(sA.day0 - sB.day0) + ' AED в день сделки.';
+        v = '<strong>The difference is within the margin of error.</strong> A returns ' + pct(rA) + ', B returns ' + pct(rB)
+          + '. The decision comes down not to the return but to whether the buyer needs the ' + fmt0(sA.day0 - sB.day0) + ' AED left free on the day of the deal.';
       } else if (rA > rB){
-        v = '<strong>Выигрывает полная оплата: ' + pct(rA) + ' против ' + pct(rB) + '.</strong> '
-          + 'Скидка перекрывает выгоду от рассрочки. План 50/50 сравняется с ней только при цене ниже '
-          + fmt0(be) + ' AED/фут — то есть если скидка за полную оплату меньше ' + (disc*100).toFixed(0) + '%.';
+        v = '<strong>Full payment wins: ' + pct(rA) + ' against ' + pct(rB) + '.</strong> '
+          + 'The discount outweighs the benefit of the payment plan. The 50/50 plan would only match it at a price below '
+          + fmt0(be) + ' AED/sqft — that is, if the full-payment discount were smaller than ' + (disc*100).toFixed(0) + '%.';
       } else {
-        v = '<strong>Выигрывает план 50/50: ' + pct(rB) + ' против ' + pct(rA) + '.</strong> '
-          + 'Отложенный платёж стоит дороже скидки. Полная оплата догонит его, только если цена по 50/50 поднимется выше '
-          + fmt0(be) + ' AED/фут.';
+        v = '<strong>The 50/50 plan wins: ' + pct(rB) + ' against ' + pct(rA) + '.</strong> '
+          + 'Deferring the payment is worth more than the discount. Full payment would only catch up if the 50/50 price rose above '
+          + fmt0(be) + ' AED/sqft.';
       }
       $('verdict').innerHTML = v;
-      $('chartNote').innerHTML = 'Горизонтальная линия — доходность варианта A: она задана его собственной ценой и от прайса второй квартиры не зависит. Кривая — доходность плана 50/50: чем дороже квартира по этому плану, тем ниже её IRR. Пересекаются они при <b>'
-        + fmt0(be) + ' AED/фут</b>. Всё, что левее, — территория рассрочки; всё, что правее, — территория скидки.';
+      $('chartNote').innerHTML = 'The horizontal line is the return on option A: it is set by its own price and does not depend on what the second apartment costs. The curve is the return on the 50/50 plan — the more expensive the apartment on that plan, the lower its IRR. They cross at <b>'
+        + fmt0(be) + ' AED/sqft</b>. Everything to the left is payment-plan territory; everything to the right belongs to the discount.';
     }
 
     drawChart(c, rA, be);
